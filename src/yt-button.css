@@ -1,0 +1,48 @@
+#kp-lyrics-btn.kp-btn-yt{
+  width:44px; height:100%; padding:0; border:0; background:transparent;
+  display:inline-flex; align-items:center; justify-content:center;
+  cursor:pointer; color:#fff; opacity:.92;
+  transition:opacity .15s ease, color .15s ease;
+}
+#kp-lyrics-btn.kp-btn-yt:hover{ opacity:1; }
+#kp-lyrics-btn.kp-btn-yt svg{
+  width:22px; height:22px; display:block; fill:currentColor;
+  transition:filter .2s ease, transform .2s ease;
+}
+#kp-lyrics-btn.kp-btn-yt:active svg{ transform:scale(.9); }
+
+#kp-lyrics-btn.kp-on{ color:#3ea6ff; }
+#kp-lyrics-btn.kp-on svg{ filter:drop-shadow(0 0 6px rgba(62,166,255,.55)); }
+
+ytmusic-player-bar #kp-lyrics-btn.kp-btn-yt{ width:40px; height:40px; }
+
+#kp-launcher{
+  position:fixed; right:24px; bottom:96px; z-index:2147483647;
+  padding:10px 18px; border-radius:999px; cursor:pointer;
+  background:#121212; color:#fff; border:1px solid rgba(255,255,255,.16);
+  font:600 13px/1 Roboto,system-ui,sans-serif; letter-spacing:.01em;
+  box-shadow:0 8px 28px rgba(0,0,0,.55);
+  transition:background .15s ease, transform .15s ease;
+}
+#kp-launcher:hover{ background:#1c1c1c; transform:translateY(-1px); }
+#kp-launcher:focus-visible{ outline:2px solid #3ea6ff; outline-offset:2px; }
+
+#kp-launcher.kp-pulse{ animation:kp-pulse 1.4s ease-out 3; }
+@keyframes kp-pulse{
+  0%   { box-shadow:0 8px 28px rgba(0,0,0,.55), 0 0 0 0 rgba(62,166,255,.55); }
+  100% { box-shadow:0 8px 28px rgba(0,0,0,.55), 0 0 0 18px rgba(62,166,255,0); }
+}
+
+.kp-toast{
+  position:fixed; left:50%; bottom:88px; transform:translateX(-50%);
+  z-index:2147483647;
+  max-width:min(420px,80vw); padding:10px 16px;
+  border-radius:8px; background:rgba(18,18,18,.96);
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff; font:500 13px/1.4 Roboto,system-ui,sans-serif;
+  box-shadow:0 8px 28px rgba(0,0,0,.5);
+}
+
+@media (prefers-reduced-motion: reduce){
+  #kp-launcher.kp-pulse{ animation:none; }
+}

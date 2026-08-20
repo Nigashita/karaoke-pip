@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Karaoke PiP — Floating Synced Lyrics",
+  "version": "1.3.1",
+  "description": "Time-synced lyrics in a floating, always-on-top window. Sing along without covering the video.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://music.youtube.com/*",
+    "https://lrclib.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open karaoke lyrics",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://music.youtube.com/*"
+      ],
+      "js": [
+        "src/lrc.js",
+        "src/metadata.js",
+        "src/pip-ui.js",
+        "src/content.js"
+      ],
+      "css": ["src/yt-button.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
